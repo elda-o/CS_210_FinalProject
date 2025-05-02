@@ -6,11 +6,10 @@ using namespace std;
 
 int main() {
 
-    CityLookup cityLookup;
-
     string country;
     string city;
     string fileName = "world_cities.csv";
+    int choice;
 
     while (true) {
         cout << "Enter a country code or exit to exit.";
@@ -22,6 +21,14 @@ int main() {
         cin >> city;
 
         if (city == "exit") break;
+
+        cout << "Choose which Cache method you want to use: " << endl;
+        cout << "1. FIFO Cache " << endl;
+        cout << "2. LFU Cache " << endl;
+        cout << "3. Random Replacement Cache " << endl;
+
+        cin >> choice;
+        CityLookup cityLookup(choice);
 
         int population = cityLookup.searchCache(fileName, country, city);
         if (population > -1) {
