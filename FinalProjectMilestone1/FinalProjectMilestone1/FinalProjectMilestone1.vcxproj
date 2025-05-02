@@ -142,6 +142,9 @@
     <ClCompile Include="CityLookup.cpp" />
     <ClCompile Include="CityStruct.cpp" />
     <ClCompile Include="CSVReader.cpp" />
+    <ClCompile Include="FIFOCache.cpp" />
+    <ClCompile Include="LFUCache.cpp" />
+    <ClCompile Include="RandomReplacementCache.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

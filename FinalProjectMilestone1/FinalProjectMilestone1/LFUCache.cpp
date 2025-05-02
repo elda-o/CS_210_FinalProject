@@ -5,25 +5,36 @@
 
 using namespace std;
 
-class FIFOCache {
+class LFUCache {
 private:
     unordered_map<string, int> cache;
-    queue<string> order;
+    unordered_map<string, int> frequency;
+
     const size_t cache_maxSize = 10;
 
 public:
     void updateCache(const string& key, int population) {
         if (cache.size() >= cache_maxSize) {
-            string oldest = order.front();
-            order.pop();
-            cache.erase(oldest);
+            string LFUkey;
+            int minFreq = 1000;
+
+            for (const auto& entry : frequency) {
+                if (entry.second < minFreq) {
+                    minFreq = entry.second;
+                    LFUkey = entry.first;
+                }
+            }
+
+            cache.erase(LFUkey);
+            frequency.erase(LFUkey);
         }
         cache[key] = population;
-        order.push(key);
+        frequency[key] = 1;
     }
-    
+
     int searchCache(const string& key) {
         if (cache.count(key)) {
+            frequency[key]++;
             return cache[key];
         }
         else {
