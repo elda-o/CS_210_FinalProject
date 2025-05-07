@@ -15,3 +15,4 @@ struct TrieStruct {
 };
 
 #endif // TRIESTRUCT_H
+
