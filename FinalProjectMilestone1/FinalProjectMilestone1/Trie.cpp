@@ -1,30 +1,32 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include "TrieStruct.cpp"
+#include "TrieStruct.h"
 
 using namespace std;
 
 class Trie {
 private:
 
-    TrieNode* root;
+    TrieStruct* root;
 
 public:
     Trie() {
-        root = new TrieNode();
+        root = new TrieStruct();
     }
 
     void insert(const string& city, const string& country, int population) {
-        TrieNode* node = root;
+        TrieStruct* node = root;
 
         for (size_t i = 0; i < city.length(); i++) {
 
             char c = city[i];
 
             if (!node->elements.count(c)) {
-                node->elements[c] = new TrieNode();
+                node->elements[c] = new TrieStruct();
             }
+
+            node = node->elements[c];
         }
 
         node->end = true;
@@ -33,7 +35,7 @@ public:
     }
 
     int search(const string& city, const string& country) {
-        TrieNode* node = root;
+        TrieStruct* node = root;
 
         for (size_t i = 0; i < city.length(); i++) {
 

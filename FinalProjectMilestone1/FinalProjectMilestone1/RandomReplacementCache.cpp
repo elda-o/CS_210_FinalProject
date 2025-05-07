@@ -16,7 +16,7 @@ public:
     void updateCache(const string& key, int population) {
         if (cache.size() >= cache_maxSize) {
             int index = rand() % keys.size();
-            string removedKey = keys.front();
+            string removedKey = keys[index];
             keys.erase(keys.begin() + index);
             cache.erase(removedKey);
         }

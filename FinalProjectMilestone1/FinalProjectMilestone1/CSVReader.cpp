@@ -3,10 +3,39 @@
 #include <sstream>
 #include <vector>
 #include "CityStruct.cpp"
+#include "Trie.cpp"
 using namespace std;
 
 class CSVReader {
 public:
+
+    static void TrieData(const string& filename, Trie& trie){
+
+        ifstream file(filename);
+        string line, word;
+
+        if (!file.is_open()) {
+            cerr << "Error: Could not open file " << filename << endl;
+            return;
+        }
+
+        while (getline(file, line)) {
+            stringstream ss(line);
+            vector<string> row;
+            while (getline(ss, word, ',')) {
+                row.push_back(word);
+            }
+            if (row.size() < 3) {
+                continue;
+            }
+
+            trie.insert(row[1], row[0], stoi(row[2]));
+            cout << "Inserted: " << row[1] << "," << row[0] << "," << row[2] << endl;
+
+        }
+        file.close();
+
+    }
     static vector<vector<string>> readCSV(const string& filename) {
         ifstream file(filename);
         vector<vector<string>> data;

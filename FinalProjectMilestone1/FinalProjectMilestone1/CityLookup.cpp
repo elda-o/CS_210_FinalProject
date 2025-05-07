@@ -6,6 +6,7 @@
 #include "FIFOCache.cpp"
 #include "LFUCache.cpp"
 #include "RandomReplacementCache.cpp"
+#include "Trie.cpp"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
     FIFOCache* fifoCache = nullptr;
     LFUCache* lfuCache = nullptr;
     RandomReplacementCache* randomReplacementCache = nullptr;
+    Trie* trie;
     int chosenCache = 0;
 //    from previous milestone
 //    unordered_map<string, int> cache;
@@ -33,12 +35,29 @@ public:
         latest.push_back(key);
     }*/
 
-    CityLookup(int choice) {
+    //from previous milestone
+    //CityLookup(int choice) {
+    //    chosenCache = choice;
+    //    if (chosenCache == 1) {
+    //        fifoCache = new FIFOCache();
+    //    }
+    //    else if(chosenCache == 2){
+    //        lfuCache = new LFUCache();
+    //    }
+    //    else if (chosenCache == 3) {
+    //        randomReplacementCache = new RandomReplacementCache();
+    //    }
+
+    //}
+
+    CityLookup(int choice, Trie* trieInstance) {
         chosenCache = choice;
+        trie = trieInstance;
+
         if (chosenCache == 1) {
             fifoCache = new FIFOCache();
         }
-        else if(chosenCache == 2){
+        else if (chosenCache == 2) {
             lfuCache = new LFUCache();
         }
         else if (chosenCache == 3) {

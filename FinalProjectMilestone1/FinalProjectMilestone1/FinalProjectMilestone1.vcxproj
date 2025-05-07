@@ -146,9 +146,14 @@
     <ClCompile Include="LFUCache.cpp" />
     <ClCompile Include="RandomReplacementCache.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Trie.cpp" />
+    <ClCompile Include="TrieStruct.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="world_cities.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TrieStruct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

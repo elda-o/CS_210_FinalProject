@@ -10,6 +10,9 @@ int main() {
     string city;
     string fileName = "world_cities.csv";
     int choice;
+    Trie trie;
+
+    CSVReader::TrieData(fileName, trie);
 
     while (true) {
         cout << "Enter a country code or exit to exit.";
@@ -28,7 +31,7 @@ int main() {
         cout << "3. Random Replacement Cache " << endl;
 
         cin >> choice;
-        CityLookup cityLookup(choice);
+        CityLookup cityLookup(choice, &trie);
 
         int population = cityLookup.searchCache(fileName, country, city);
         if (population > -1) {
