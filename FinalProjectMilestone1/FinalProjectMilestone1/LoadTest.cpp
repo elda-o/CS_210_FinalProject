@@ -83,6 +83,7 @@ int main() {
     CSVReader::TrieData(fileName, trie);
 
     vector<vector<string>> cityData = CSVReader::readCSV(fileName);
+
     if (cityData.empty()) {
         cerr << "Error: No city data found in CSV file." << endl;
         return 1;
