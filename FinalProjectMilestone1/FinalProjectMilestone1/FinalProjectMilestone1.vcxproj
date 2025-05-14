@@ -144,6 +144,7 @@
     <ClCompile Include="CSVReader.cpp" />
     <ClCompile Include="FIFOCache.cpp" />
     <ClCompile Include="LFUCache.cpp" />
+    <ClCompile Include="LoadTest.cpp" />
     <ClCompile Include="RandomReplacementCache.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trie.cpp" />
